@@ -1,4 +1,7 @@
 .nav {
+  position: fixed;
+  z-index: 999;
+  top: 0;
   display: flex;
   justify-content: space-between;
   margin: 0;
@@ -25,4 +28,8 @@
     height: 40px;
     fill: var(--dark-yellow);
   }
+}
+
+.itemsInCart {
+  color: var(--white);
 }
