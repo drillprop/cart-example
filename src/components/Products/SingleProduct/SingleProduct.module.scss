@@ -1,0 +1,19 @@
+.productItem {
+  img {
+    width: 100%;
+  }
+  display: grid;
+  grid-template-rows: auto 1fr auto 30px;
+  h2 {
+    font-size: 1rem;
+    align-self: start;
+  }
+}
+
+.addToCartButton {
+  background-color: black;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 3px;
+  border: none;
+}
