@@ -1,0 +1,22 @@
+.cartWrapper {
+  position: fixed;
+  z-index: 998;
+  background: var(--grays-7);
+  top: 85px;
+  right: 0;
+  width: 320px;
+  height: calc(100vh - 85px);
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+.cartItems {
+  padding: 0;
+}
+
+.total {
+  padding: 20px;
+  bottom: 0px;
+  font-weight: 700;
+  text-align: right;
+}
