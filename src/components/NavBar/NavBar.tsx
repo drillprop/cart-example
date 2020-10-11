@@ -16,17 +16,19 @@ const NavBar = () => {
   );
   return (
     <nav className={styles.nav}>
-      <h1>
-        <img src={logo} alt='logo' />
+      <h1 className={styles.logo}>
+        <img src={logo} alt='logo' className={styles.logoImg} />
         Hot Deals
       </h1>
       <button
-        title='show cart'
+        aria-label='Show Cart'
         className={styles.cartButton}
         onClick={() => dispatch(toggleCart())}
       >
         <CartIcon />
-        <span className={styles.itemsInCart}>{cartLength}</span>
+        <span aria-label='items in Cart' className={styles.itemsInCart}>
+          {cartLength}
+        </span>
       </button>
     </nav>
   );

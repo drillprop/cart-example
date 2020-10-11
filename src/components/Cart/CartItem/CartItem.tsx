@@ -22,6 +22,7 @@ const CartItem = ({ cartItem }: Props) => {
   return (
     <li className={styles.item} key={cartItem.id}>
       <button
+        title={`Remove ${cartItem.title} from cart`}
         className={styles.deleteButton}
         onClick={() => dispatch(removeItemFromCart(cartItem.id))}
       >
@@ -32,6 +33,7 @@ const CartItem = ({ cartItem }: Props) => {
         <h2 className={styles.itemTitle}>{cartItem.title}</h2>
         <div className={styles.itemCount}>
           <button
+            title={`Decrease quantity of ${cartItem.title} in cart`}
             className={styles.quantityButton}
             onClick={() => dispatch(decreaseItemInCart(cartItem.id))}
           >
@@ -39,6 +41,7 @@ const CartItem = ({ cartItem }: Props) => {
           </button>
           <span>{cartItem.quantity}</span>
           <button
+            title={`Increase quantity of ${cartItem.title} in cart`}
             className={styles.quantityButton}
             onClick={() => dispatch(increaseItemInCart(cartItem.id))}
           >

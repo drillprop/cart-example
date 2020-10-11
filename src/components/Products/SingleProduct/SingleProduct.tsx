@@ -13,9 +13,13 @@ const SingleProduct = ({ productItem }: Props) => {
 
   return (
     <li className={styles.productItem} key={productItem.id}>
-      <img src={productItem.cover} alt={productItem.title} />
-      <h2>{productItem.title}</h2>
-      <p>{productItem.price?.toFixed(2)} PLN</p>
+      <img
+        className={styles.productImg}
+        src={productItem.cover}
+        alt={productItem.title}
+      />
+      <h3 className={styles.productTitle}>{productItem.title}</h3>
+      <p className={styles.productPrice}>{productItem.price?.toFixed(2)} PLN</p>
       <button
         className={styles.addToCartButton}
         onClick={() => dispatch(addItemToCart(productItem))}

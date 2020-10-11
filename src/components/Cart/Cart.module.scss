@@ -10,6 +10,14 @@
   padding: 20px;
 }
 
+.clearButton {
+  border: none;
+  color: var(--white);
+  padding: 10px 10px;
+  background-color: var(--black);
+  font-family: Montserrat, sans-serif;
+}
+
 .cartItems {
   padding: 0;
 }
