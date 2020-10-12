@@ -5,15 +5,12 @@ import { ReactComponent as CartIcon } from '../../assets/cart.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleCart } from '../../redux/menu/menuSlice';
 import { RootState } from '../../redux/store';
+import { cartItemsLengthSelector } from '../../redux/cart/cartSelectors';
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  const cartLength = useSelector<RootState, number>(({ cart }) =>
-    cart.reduce((acc, current) => {
-      acc += current.quantity;
-      return acc;
-    }, 0)
-  );
+  const cartLength = useSelector<RootState, number>(cartItemsLengthSelector);
+
   return (
     <nav className={styles.nav}>
       <h1 className={styles.logo}>

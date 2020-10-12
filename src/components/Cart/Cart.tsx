@@ -4,14 +4,15 @@ import { clearCart } from '../../redux/cart/cartSlice';
 import { CartState, RootState } from '../../redux/store';
 import CartItem from './CartItem/CartItem';
 import styles from './Cart.module.scss';
+import {
+  cartItemsSelector,
+  cartItemsTotalPriceSelector,
+} from '../../redux/cart/cartSelectors';
 
 const Cart = () => {
-  const cartItems = useSelector<RootState, CartState>(({ cart }) => cart);
-  const totalPrice = useSelector<RootState, number>(({ cart }) =>
-    cart.reduce((acc, current) => {
-      acc += (current.price || 0) * current.quantity;
-      return acc;
-    }, 0)
+  const cartItems = useSelector<RootState, CartState>(cartItemsSelector);
+  const totalPrice = useSelector<RootState, number>(
+    cartItemsTotalPriceSelector
   );
 
   const dispatch = useDispatch();
