@@ -5,6 +5,24 @@ import cartReducer, {
   removeItemFromCart,
 } from './cartSlice';
 
+const mockItemWithId16 = {
+  id: 16,
+  title: 'Fallout 76',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
+  availability: true,
+  price: 105.0,
+  currency: 'PLN',
+};
+
+const mockItemWithId17 = {
+  id: 17,
+  title: 'Battlefield V',
+  cover: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
+  availability: true,
+  price: 39.99,
+  currency: 'PLN',
+};
+
 describe('cart reducer', () => {
   it('should handle initial state', () => {
     // @ts-ignore
@@ -12,27 +30,10 @@ describe('cart reducer', () => {
   });
 
   it('should handle add item to cart', () => {
-    const actual = cartReducer(
-      [],
-      addItemToCart({
-        id: 16,
-        title: 'Fallout 76',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-        availability: true,
-        price: 105.0,
-        currency: 'PLN',
-      })
-    );
+    const actual = cartReducer([], addItemToCart(mockItemWithId16));
     expect(actual).toEqual([
       {
-        id: 16,
-        title: 'Fallout 76',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-        availability: true,
-        price: 105.0,
-        currency: 'PLN',
+        ...mockItemWithId16,
         quantity: 1,
       },
     ]);
@@ -42,35 +43,15 @@ describe('cart reducer', () => {
     const actual = cartReducer(
       [
         {
-          id: 16,
-          title: 'Fallout 76',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-          availability: true,
-          price: 105.0,
-          currency: 'PLN',
+          ...mockItemWithId16,
           quantity: 1,
         },
       ],
-      addItemToCart({
-        id: 16,
-        title: 'Fallout 76',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-        availability: true,
-        price: 105.0,
-        currency: 'PLN',
-      })
+      addItemToCart(mockItemWithId16)
     );
     expect(actual).toEqual([
       {
-        id: 16,
-        title: 'Fallout 76',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-        availability: true,
-        price: 105.0,
-        currency: 'PLN',
+        ...mockItemWithId16,
         quantity: 2,
       },
     ]);
@@ -80,23 +61,11 @@ describe('cart reducer', () => {
     const actual = cartReducer(
       [
         {
-          id: 16,
-          title: 'Fallout 76',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-          availability: true,
-          price: 105.0,
-          currency: 'PLN',
+          ...mockItemWithId16,
           quantity: 1,
         },
         {
-          id: 17,
-          title: 'Battlefield V',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-          availability: true,
-          price: 39.99,
-          currency: 'PLN',
+          ...mockItemWithId17,
           quantity: 2,
         },
       ],
@@ -104,13 +73,7 @@ describe('cart reducer', () => {
     );
     expect(actual).toEqual([
       {
-        id: 17,
-        title: 'Battlefield V',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-        availability: true,
-        price: 39.99,
-        currency: 'PLN',
+        ...mockItemWithId17,
         quantity: 2,
       },
     ]);
@@ -120,23 +83,11 @@ describe('cart reducer', () => {
     const actual = cartReducer(
       [
         {
-          id: 16,
-          title: 'Fallout 76',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-          availability: true,
-          price: 105.0,
-          currency: 'PLN',
+          ...mockItemWithId16,
           quantity: 1,
         },
         {
-          id: 17,
-          title: 'Battlefield V',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-          availability: true,
-          price: 39.99,
-          currency: 'PLN',
+          ...mockItemWithId17,
           quantity: 2,
         },
       ],
@@ -144,23 +95,11 @@ describe('cart reducer', () => {
     );
     expect(actual).toEqual([
       {
-        id: 16,
-        title: 'Fallout 76',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-        availability: true,
-        price: 105.0,
-        currency: 'PLN',
+        ...mockItemWithId16,
         quantity: 2,
       },
       {
-        id: 17,
-        title: 'Battlefield V',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-        availability: true,
-        price: 39.99,
-        currency: 'PLN',
+        ...mockItemWithId17,
         quantity: 2,
       },
     ]);
@@ -170,13 +109,7 @@ describe('cart reducer', () => {
     const actual = cartReducer(
       [
         {
-          id: 17,
-          title: 'Battlefield V',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-          availability: true,
-          price: 39.99,
-          currency: 'PLN',
+          ...mockItemWithId17,
           quantity: 2,
         },
       ],
@@ -184,39 +117,21 @@ describe('cart reducer', () => {
     );
     expect(actual).toEqual([
       {
-        id: 17,
-        title: 'Battlefield V',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-        availability: true,
-        price: 39.99,
-        currency: 'PLN',
+        ...mockItemWithId17,
         quantity: 1,
       },
     ]);
   });
 
-  it('should remove cartItem when decreasing quantity if quantity of item is equal to 1', () => {
+  it('should remove cartItem when decreasing quantity, if quantity of item is equal to 1', () => {
     const actual = cartReducer(
       [
         {
-          id: 16,
-          title: 'Fallout 76',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-          availability: true,
-          price: 105.0,
-          currency: 'PLN',
+          ...mockItemWithId16,
           quantity: 2,
         },
         {
-          id: 17,
-          title: 'Battlefield V',
-          cover:
-            'https://images.igdb.com/igdb/image/upload/t_cover_big/co1xbv.jpg',
-          availability: true,
-          price: 39.99,
-          currency: 'PLN',
+          ...mockItemWithId17,
           quantity: 1,
         },
       ],
@@ -224,13 +139,7 @@ describe('cart reducer', () => {
     );
     expect(actual).toEqual([
       {
-        id: 16,
-        title: 'Fallout 76',
-        cover:
-          'https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg',
-        availability: true,
-        price: 105.0,
-        currency: 'PLN',
+        ...mockItemWithId16,
         quantity: 2,
       },
     ]);
