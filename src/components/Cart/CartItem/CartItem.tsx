@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import {
   CartItemType,
+  removeItemFromCart,
   decreaseItemInCart,
   increaseItemInCart,
-  removeItemFromCart,
-} from '../../../redux/cart/cartSlice';
+} from 'redux/cart/cartSlice';
 
 import styles from './CartItem.module.scss';
 

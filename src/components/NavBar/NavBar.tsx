@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './NavBar.module.scss';
-import logo from '../../assets/logo.png';
-import { ReactComponent as CartIcon } from '../../assets/cart.svg';
+import logo from 'assets/logo.png';
+import { ReactComponent as CartIcon } from 'assets/cart.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleCart } from '../../redux/menu/menuSlice';
-import { RootState } from '../../redux/store';
-import { cartItemsLengthSelector } from '../../redux/cart/cartSelectors';
+import { toggleCart } from 'redux/menu/menuSlice';
+import { RootState } from 'redux/store';
+import { cartItemsLengthSelector } from 'redux/cart/cartSelectors';
 
 const NavBar = () => {
   const dispatch = useDispatch();

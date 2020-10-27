@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart } from '../../redux/cart/cartSlice';
-import { CartState, RootState } from '../../redux/store';
 import CartItem from './CartItem/CartItem';
 import styles from './Cart.module.scss';
 import {
   cartItemsSelector,
   cartItemsTotalPriceSelector,
-} from '../../redux/cart/cartSelectors';
+} from 'redux/cart/cartSelectors';
+import { clearCart } from 'redux/cart/cartSlice';
+import { RootState, CartState } from 'redux/store';
 
 const Cart = () => {
   const cartItems = useSelector<RootState, CartState>(cartItemsSelector);

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../../redux/cart/cartSlice';
-import { ProductType } from '../../../redux/shop/shopSlice';
+import { addItemToCart } from 'redux/cart/cartSlice';
+import { ProductType } from 'redux/shop/shopSlice';
+
 import styles from './SingleProduct.module.scss';
 
 type Props = {
